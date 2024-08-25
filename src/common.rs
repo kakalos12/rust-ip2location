@@ -50,18 +50,14 @@ impl Source {
     }
 
     pub fn read_u32(&self, offset: u64) -> Result<u32, Error> {
-        let result = u32::from_ne_bytes(
-            self.map[(offset - 1) as usize..(offset + 3) as usize]
-                .try_into()?,
-        );
+        let result =
+            u32::from_ne_bytes(self.map[(offset - 1) as usize..(offset + 3) as usize].try_into()?);
         Ok(result)
     }
 
     pub fn read_f32(&self, offset: u64) -> Result<f32, Error> {
-        let result = f32::from_ne_bytes(
-            self.map[(offset - 1) as usize..(offset + 3) as usize]
-                .try_into()?,
-        );
+        let result =
+            f32::from_ne_bytes(self.map[(offset - 1) as usize..(offset + 3) as usize].try_into()?);
         Ok(result)
     }
 
